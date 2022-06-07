@@ -3,6 +3,9 @@ namespace Program
     
     public class actor
     {
+        private int xPosition;
+        private int yPosition;
+        private int fontSize = 15;
 
 
 
@@ -12,13 +15,20 @@ namespace Program
 
         }
 
-        private Point getPosition()
+        public int getx()
         {
-
+            return x;
         }
 
-        private 
+        public int gety()
+        {
+            return y;
+        }
 
+        public void updatePosition()
+        {
+            
+        }
 
     }
 }
