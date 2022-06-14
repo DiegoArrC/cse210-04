@@ -14,6 +14,7 @@ namespace Unit04.Game.Casting
     {
         private string text = "";
         private int fontSize = 15;
+        private static int COLS = 60;
         private Color color = new Color(255, 255, 255); // white
         private Point position = new Point(0, 0);
         private Point velocity = new Point(0, 0);
@@ -79,9 +80,19 @@ namespace Unit04.Game.Casting
         /// <param name="maxY">The maximum y value.</param>
         public void MoveNext(int maxX, int maxY)
         {
-            int x = ((position.GetX() + velocity.GetX()) + maxX) % maxX;
-            int y = ((position.GetY() + velocity.GetY()) + maxY) % maxY;
-            position = new Point(x, y);
+            Random random = new Random();
+            int randX = random.Next(1, 60);
+            int x = ((position.GetX() + velocity.GetX()));
+            int y = ((position.GetY() + velocity.GetY()));
+            if (y > maxY + 20)
+            {
+                Point position = new Point(randX, 0);
+            }
+            else
+            {
+                position = new Point(x, y);
+            }
+
         }
 
         /// <summary>

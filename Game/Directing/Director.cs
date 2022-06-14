@@ -60,6 +60,7 @@ namespace Unit04.Game.Directing
         /// <param name="cast">The given cast.</param>
         private void DoUpdates(Cast cast)
         {
+            Random random = new Random();
             Actor banner = cast.GetFirstActor("banner");
             Actor robot = cast.GetFirstActor("robot");
             List<Actor> artifacts = cast.GetActors("artifacts");
@@ -72,6 +73,8 @@ namespace Unit04.Game.Directing
             {
                 actor.MoveNext(maxX, maxY);
             }
+
+            
 
             foreach (Actor actor in artifacts)
             {
