@@ -81,12 +81,12 @@ namespace Unit04.Game.Casting
         public void MoveNext(int maxX, int maxY)
         {
             Random random = new Random();
-            int randX = random.Next(1, 60);
+            int randX = random.Next(1, maxX);
             int x = ((position.GetX() + velocity.GetX()));
             int y = ((position.GetY() + velocity.GetY()));
             if (y > maxY + 20)
             {
-                Point position = new Point(randX, 0);
+                position = new Point(randX, 0);
             }
             else
             {
