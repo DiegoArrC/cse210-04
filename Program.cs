@@ -64,7 +64,7 @@ namespace Unit04
                 int y = random.Next(1, ROWS);
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
-                Point velocity = new Point(0, CELL_SIZE/2);
+                Point velocity = new Point(0, CELL_SIZE*7/10);
 
 
                 int r = random.Next(0, 256);
