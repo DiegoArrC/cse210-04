@@ -15,6 +15,7 @@ namespace Unit04.Game.Directing
     {
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
+        Scorekeeper scorekeeper = new Scorekeeper();
 
         /// <summary>
         /// Constructs a new instance of Director using the given KeyboardService and VideoService.
@@ -65,7 +66,7 @@ namespace Unit04.Game.Directing
             Actor robot = cast.GetFirstActor("robot");
             List<Actor> artifacts = cast.GetActors("artifacts");
 
-            banner.SetText("");
+            
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
@@ -76,13 +77,31 @@ namespace Unit04.Game.Directing
 
             
 
-            foreach (Actor actor in artifacts)
-            {
-                if (robot.GetPosition().Equals(actor.GetPosition()))
-                {
+            // foreach (Actor actor in artifacts)
+            // {   
+            //     Point artifact = actor.GetPosition();
 
+            //     if (robot.GetPosition().Equals(artifact))
+            //     {   
+            //         scorekeeper.updateScore(actor);
+            //     }
+            // } 
+
+            foreach (Actor actor in artifacts)
+            {   
+                Point player = robot.GetPosition();
+                Point artifact = actor.GetPosition();
+                for (int i = 0; i <= 15; i++)
+                {
+                    if ((player.GetX() + i == artifact.GetX() + i) && (player.GetY() == artifact.GetY()))
+                        {   
+                            scorekeeper.updateScore(actor);
+                            break;
+                        }
                 }
+                
             } 
+            banner.SetText($"Score: {scorekeeper.getScore().ToString()}");
         }
 
         /// <summary>
