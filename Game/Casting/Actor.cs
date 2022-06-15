@@ -15,6 +15,7 @@ namespace Unit04.Game.Casting
         private string text = "";
         private int fontSize = 15;
         private static int COLS = 60;
+        private static int CELL_SIZE = 15;
         private Color color = new Color(255, 255, 255); // white
         private Point position = new Point(0, 0);
         private Point velocity = new Point(0, 0);
@@ -81,7 +82,8 @@ namespace Unit04.Game.Casting
         public void MoveNext(int maxX, int maxY)
         {
             Random random = new Random();
-            int randX = random.Next(1, maxX);
+            int randX = random.Next(1, COLS);
+            randX = randX * CELL_SIZE;
             int x = ((position.GetX() + velocity.GetX()));
             int y = ((position.GetY() + velocity.GetY()));
             if (y > maxY + 20)

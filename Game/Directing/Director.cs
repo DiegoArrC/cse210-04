@@ -77,30 +77,30 @@ namespace Unit04.Game.Directing
 
             
 
-            // foreach (Actor actor in artifacts)
-            // {   
-            //     Point artifact = actor.GetPosition();
-
-            //     if (robot.GetPosition().Equals(artifact))
-            //     {   
-            //         scorekeeper.updateScore(actor);
-            //     }
-            // } 
-
             foreach (Actor actor in artifacts)
             {   
-                Point player = robot.GetPosition();
                 Point artifact = actor.GetPosition();
-                for (int i = 0; i <= 15; i++)
-                {
-                    if ((player.GetX() + i == artifact.GetX() + i) && (player.GetY() == artifact.GetY()))
-                        {   
-                            scorekeeper.updateScore(actor);
-                            break;
-                        }
+
+                if (robot.GetPosition().Equals(artifact))
+                {   
+                    scorekeeper.updateScore(actor);
                 }
-                
             } 
+
+            // foreach (Actor actor in artifacts)
+            // {   
+            //     Point player = robot.GetPosition();
+            //     Point artifact = actor.GetPosition();
+            //     for (int i = 0; i <= 15; i++)
+            //     {
+            //         if ((player.GetX() + i == artifact.GetX() + i) && (player.GetY() == artifact.GetY()))
+            //             {   
+            //                 scorekeeper.updateScore(actor);
+            //                 break;
+            //             }
+            //     }
+                
+            // } 
             banner.SetText($"Score: {scorekeeper.getScore().ToString()}");
         }
 
